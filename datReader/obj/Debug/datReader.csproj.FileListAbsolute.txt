@@ -1,0 +1,7 @@
+D:\VS project\Gits\GTA-V-Script-Decompiler\datReader\bin\Debug\datReader.exe.config
+D:\VS project\Gits\GTA-V-Script-Decompiler\datReader\bin\Debug\datReader.exe
+D:\VS project\Gits\GTA-V-Script-Decompiler\datReader\bin\Debug\datReader.pdb
+D:\VS project\Gits\GTA-V-Script-Decompiler\datReader\obj\Debug\datReader.csprojAssemblyReference.cache
+D:\VS project\Gits\GTA-V-Script-Decompiler\datReader\obj\Debug\datReader.csproj.CoreCompileInputs.cache
+D:\VS project\Gits\GTA-V-Script-Decompiler\datReader\obj\Debug\datReader.exe
+D:\VS project\Gits\GTA-V-Script-Decompiler\datReader\obj\Debug\datReader.pdb
