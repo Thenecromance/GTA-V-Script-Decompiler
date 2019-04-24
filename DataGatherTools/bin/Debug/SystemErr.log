@@ -1,0 +1,16 @@
+[2019/4/24 0:38:09][Error]:startIndex 不能大于字符串长度。
+参数名: startIndex:   在 System.String.Substring(Int32 startIndex, Int32 length)
+   在 System.String.Substring(Int32 startIndex)
+   在 DataGatherTools.Stat_Colector.CollectSTAT(String Filepath) 位置 D:\VS project\Gits\GTA-V-Script-Decompiler\DataGatherTools\Hash\MPStat.cs:行号 33
+[2019/4/24 0:40:55][Error]:startIndex 不能大于字符串长度。
+参数名: startIndex:   在 System.String.Substring(Int32 startIndex, Int32 length)
+   在 System.String.Substring(Int32 startIndex)
+   在 DataGatherTools.Stat_Colector.CollectSTAT(String Filepath) 位置 D:\VS project\Gits\GTA-V-Script-Decompiler\DataGatherTools\Hash\MPStat.cs:行号 34
+[2019/4/24 0:41:10][Error]:startIndex 不能大于字符串长度。
+参数名: startIndex:   在 System.String.Substring(Int32 startIndex, Int32 length)
+   在 System.String.Substring(Int32 startIndex)
+   在 DataGatherTools.Stat_Colector.CollectSTAT(String Filepath) 位置 D:\VS project\Gits\GTA-V-Script-Decompiler\DataGatherTools\Hash\MPStat.cs:行号 34
+[2019/4/24 0:41:55][Error]:startIndex 不能大于字符串长度。
+参数名: startIndex:   在 System.String.Substring(Int32 startIndex, Int32 length)
+   在 System.String.Substring(Int32 startIndex)
+   在 DataGatherTools.Stat_Colector.CollectSTAT(String Filepath) 位置 D:\VS project\Gits\GTA-V-Script-Decompiler\DataGatherTools\Hash\MPStat.cs:行号 35

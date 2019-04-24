@@ -1,0 +1,7 @@
+D:\VS project\Gits\GTA-V-Script-Decompiler\DataGatherTools\bin\Debug\DataGatherTools.exe.config
+D:\VS project\Gits\GTA-V-Script-Decompiler\DataGatherTools\bin\Debug\DataGatherTools.exe
+D:\VS project\Gits\GTA-V-Script-Decompiler\DataGatherTools\bin\Debug\DataGatherTools.pdb
+D:\VS project\Gits\GTA-V-Script-Decompiler\DataGatherTools\obj\Debug\DataGatherTools.csprojAssemblyReference.cache
+D:\VS project\Gits\GTA-V-Script-Decompiler\DataGatherTools\obj\Debug\DataGatherTools.csproj.CoreCompileInputs.cache
+D:\VS project\Gits\GTA-V-Script-Decompiler\DataGatherTools\obj\Debug\DataGatherTools.exe
+D:\VS project\Gits\GTA-V-Script-Decompiler\DataGatherTools\obj\Debug\DataGatherTools.pdb
