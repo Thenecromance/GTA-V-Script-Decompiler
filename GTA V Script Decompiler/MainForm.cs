@@ -1063,6 +1063,7 @@ namespace Decompiler
             FolderSelectDialog fsd = new FolderSelectDialog();
             if (fsd.ShowDialog() == DialogResult.OK)
             {
+                DateTime Start = DateTime.Now;
                 PackgePath = fsd.SelectedPath;
                 updatestatus($"select Path:{PackgePath}");
                 if (!Directory.Exists(DecomliedFile))
@@ -1074,6 +1075,7 @@ namespace Decompiler
                     {
                         if (fileinfo.Extension == ".full")
                         {
+                            DateTime fileTime = DateTime.Now;
                             fileopen = new ScriptFile(FileToStream(fileinfo.FullName), false);
                             MemoryStream ms = new MemoryStream();
                             fileopen.Save(ms, false);
@@ -1084,11 +1086,12 @@ namespace Decompiler
                             {
                                 writer.WriteLine(sr.ReadToEnd());
                             }
-                            updatestatus($"Building {fileinfo.FullName}");
+                            updatestatus($"Building {fileinfo.FullName}:{(DateTime.Now -fileTime).ToString()}");
                         }
                     }
 
                 }
+                updatestatus($"Parse Finished {(DateTime.Now- Start).ToString()}");
             }
         }
         private string DatDir = Environment.CurrentDirectory + "\\Dat\\";
@@ -1182,7 +1185,7 @@ namespace Decompiler
             updatestatus(NewDat.ToString());
             byte[] buffer = Encoding.UTF8.GetBytes(NewDat.ToString());
             byte[] outputbuffer = CompressBytes(buffer);
-            FileStream fs = new FileStream(Environment.CurrentDirectory + "\\test.dat", FileMode.Create);
+            FileStream fs = new FileStream(Environment.CurrentDirectory + "\\native_translation.dat", FileMode.Create);
             fs.Write(outputbuffer, 0, outputbuffer.Length);
             fs.Close();
             updatestatus($"{counter} Natives Has Been Updated");
