@@ -3,3 +3,8 @@ GTA V Script Decompiler/Release/
 GTA V Script Decompiler/bin/
 *.db
 GTA V Script Decompiler/Resources/Entities2.dat
+/.vs/GTA V Script Decompiler/v16/Server/sqlite3/db.lock
+/.vs/GTA V Script Decompiler/v16/.suo
+/.vs/GTA V Script Decompiler/v16/Server/sqlite3/storage.ide
+/.vs/GTA V Script Decompiler/v16/Server/sqlite3/storage.ide-shm
+/.vs/GTA V Script Decompiler/v16/Server/sqlite3/storage.ide-wal

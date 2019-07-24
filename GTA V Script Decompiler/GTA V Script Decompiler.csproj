@@ -94,6 +94,7 @@
   <ItemGroup>
     <Compile Include="CodePath.cs" />
     <Compile Include="FolderSelectDialog.cs" />
+    <Compile Include="Log.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
