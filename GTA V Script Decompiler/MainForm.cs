@@ -76,7 +76,7 @@ namespace Decompiler
             includeNativeNamespaceToolStripMenuItem.Checked = Program.Find_Nat_Namespace();
             globalAndStructHexIndexingToolStripMenuItem.Checked = Program.Find_Hex_Index();
             uppercaseNativesToolStripMenuItem.Checked = Program.Find_Upper_Natives();
-
+            deCompliedWithoutTranslateToolStripMenuItem.Checked = Program.Find_Decomplied();
             showLineNumbersToolStripMenuItem.Checked = fctb1.ShowLineNumbers = Program.Config.IniReadBool("View", "Line_Numbers");
             ToolStripMenuItem t = null;
             switch (Program.Find_getINTType())
@@ -284,6 +284,8 @@ namespace Decompiler
 #endif
         }
 
+
+
         #region Config Options
 
         private void intstylechanged(object sender, EventArgs e)
@@ -312,6 +314,13 @@ namespace Decompiler
             reverseHashesToolStripMenuItem.Checked = !reverseHashesToolStripMenuItem.Checked;
             Program.Config.IniWriteBool("Base", "Reverse_Hashes", reverseHashesToolStripMenuItem.Checked);
             Program.Find_Reverse_Hashes();
+        }
+
+        private void DeCompliedWithoutTranslateToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            deCompliedWithoutTranslateToolStripMenuItem.Checked = !deCompliedWithoutTranslateToolStripMenuItem.Checked;
+            X64NativeTable.SetTranslation(deCompliedWithoutTranslateToolStripMenuItem.Checked);
+            Program.Config.IniWriteBool("Base", "Decomplied_With_Translation", deCompliedWithoutTranslateToolStripMenuItem.Checked);
         }
 
         private void declareVariablesToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1086,12 +1095,12 @@ namespace Decompiler
                             {
                                 writer.WriteLine(sr.ReadToEnd());
                             }
-                            updatestatus($"Building {fileinfo.FullName}:{(DateTime.Now -fileTime).ToString()}");
+                            updatestatus($"Building {fileinfo.FullName}:{(DateTime.Now - fileTime).ToString()}");
                         }
                     }
 
                 }
-                updatestatus($"Parse Finished {(DateTime.Now- Start).ToString()}");
+                updatestatus($"Parse Finished {(DateTime.Now - Start).ToString()}");
             }
         }
         private string DatDir = Environment.CurrentDirectory + "\\Dat\\";
@@ -1191,6 +1200,6 @@ namespace Decompiler
             updatestatus($"{counter} Natives Has Been Updated");
         }
 
-       
+
     }
 }

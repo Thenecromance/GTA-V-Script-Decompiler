@@ -85,6 +85,7 @@
             this.updateToolToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.unPackAllyscToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.upackDatFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.updateDatNativetranslationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
             this.listView1 = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -100,7 +101,7 @@
             this.toolStripStatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.timer3 = new System.Windows.Forms.Timer(this.components);
-            this.updateDatNativetranslationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deCompliedWithoutTranslateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.fctb1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -132,6 +133,7 @@
             this.fctb1.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.fctb1.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
             this.fctb1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.fctb1.Font = new System.Drawing.Font("Courier New", 9.75F);
             this.fctb1.IsReplaceMode = false;
             this.fctb1.Language = FastColoredTextBoxNS.Language.CSharp;
             this.fctb1.LeftBracket = '(';
@@ -261,6 +263,7 @@
             this.useMultiThreadingToolStripMenuItem,
             this.includeFunctionPositionToolStripMenuItem,
             this.uppercaseNativesToolStripMenuItem,
+            this.deCompliedWithoutTranslateToolStripMenuItem,
             this.toolStripSeparator4,
             this.exportTablesToolStripMenuItem,
             this.findHashFromStringsToolStripMenuItem});
@@ -560,6 +563,13 @@
             this.upackDatFileToolStripMenuItem.Text = "UpackDatFile";
             this.upackDatFileToolStripMenuItem.Click += new System.EventHandler(this.UpackDatFileToolStripMenuItem_Click);
             // 
+            // updateDatNativetranslationToolStripMenuItem
+            // 
+            this.updateDatNativetranslationToolStripMenuItem.Name = "updateDatNativetranslationToolStripMenuItem";
+            this.updateDatNativetranslationToolStripMenuItem.Size = new System.Drawing.Size(242, 22);
+            this.updateDatNativetranslationToolStripMenuItem.Text = "UpdateDatNative_translation";
+            this.updateDatNativetranslationToolStripMenuItem.Click += new System.EventHandler(this.UpdateDatNativetranslationToolStripMenuItem_Click);
+            // 
             // panel1
             // 
             this.panel1.Controls.Add(this.listView1);
@@ -681,12 +691,12 @@
             this.timer3.Interval = 5000;
             this.timer3.Tick += new System.EventHandler(this.timer3_Tick);
             // 
-            // updateDatNativetranslationToolStripMenuItem
+            // deCompliedWithoutTranslateToolStripMenuItem
             // 
-            this.updateDatNativetranslationToolStripMenuItem.Name = "updateDatNativetranslationToolStripMenuItem";
-            this.updateDatNativetranslationToolStripMenuItem.Size = new System.Drawing.Size(242, 22);
-            this.updateDatNativetranslationToolStripMenuItem.Text = "UpdateDatNative_translation";
-            this.updateDatNativetranslationToolStripMenuItem.Click += new System.EventHandler(this.UpdateDatNativetranslationToolStripMenuItem_Click);
+            this.deCompliedWithoutTranslateToolStripMenuItem.Name = "deCompliedWithoutTranslateToolStripMenuItem";
+            this.deCompliedWithoutTranslateToolStripMenuItem.Size = new System.Drawing.Size(257, 22);
+            this.deCompliedWithoutTranslateToolStripMenuItem.Text = "DeComplied Without Translate";
+            this.deCompliedWithoutTranslateToolStripMenuItem.Click += new System.EventHandler(this.DeCompliedWithoutTranslateToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -784,6 +794,7 @@
         private System.Windows.Forms.ToolStripMenuItem unPackAllyscToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem upackDatFileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem updateDatNativetranslationToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem deCompliedWithoutTranslateToolStripMenuItem;
     }
 }
 

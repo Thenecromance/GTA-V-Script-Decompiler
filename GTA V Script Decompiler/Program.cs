@@ -192,5 +192,12 @@ namespace Decompiler
 			get { return _upper_Natives; }
 		}
 
+        public static bool Find_Decomplied()
+        {
+            X64NativeTable.SetTranslation(Program.Config.IniReadBool("Base", "Decomplied_With_Translation", false));
+            return Program.Config.IniReadBool("Base", "Decomplied_With_Translation", false);
+        }
+
+
 	}
 }

@@ -4,12 +4,15 @@ using System.IO;
 
 namespace Decompiler
 {
+   
 	//These classes are generated from a script and are used to translate the index a native is called with to its hash/reversed name
 	//X64 corresponds to the PC version of the gane. Would likely include PS4/X1 version but no work has been done with those systems
 	public class NativeTable
 	{
+       
 		List<string> _natives;
 		List<uint> _nativehash;
+      
 		public NativeTable(Stream scriptFile, int position, int length)
 		{
 			IO.Reader reader = new IO.Reader(scriptFile, true);
@@ -77,12 +80,19 @@ namespace Decompiler
 		{
 			_natives.Clear();
 		}
+
+ 
 	}
 	public class X64NativeTable
 	{
 		List<string> _natives;
 		List<ulong> _nativehash;
-		public X64NativeTable(Stream scriptFile, int position, int length, int codeSize)
+        static bool Translate = false;
+        public static void SetTranslation(bool toggle)
+        {
+            Translate = toggle;
+        }
+        public X64NativeTable(Stream scriptFile, int position, int length, int codeSize)
 		{
 			IO.Reader reader = new IO.Reader(scriptFile, false);
 			int count = 0;
@@ -98,7 +108,7 @@ namespace Decompiler
 				//Just some of the steps Rockstar take to make reverse engineering harder
 				nat = Program.x64nativefile.TranslateHash(rotl(reader.ReadUInt64(), codeSize + count));
 				_nativehash.Add(nat);
-				if (Program.x64nativefile.ContainsKey(nat))
+				if (Program.x64nativefile.ContainsKey(nat)&& !Translate)
 				{
 					_natives.Add(Program.x64nativefile[nat]);
 				}
