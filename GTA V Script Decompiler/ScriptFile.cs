@@ -403,7 +403,7 @@ namespace Decompiler
 
         public void SaveToFile(string filePath)
         {
-            string json = JsonConvert.SerializeObject(TotalFile);
+            string json = JsonConvert.SerializeObject(TotalFile, Formatting.Indented);
             using (StreamWriter writer =new StreamWriter(filePath))
             {
                 writer.WriteLine(json);
