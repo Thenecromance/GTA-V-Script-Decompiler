@@ -108,6 +108,7 @@ namespace Decompiler
 				//Just some of the steps Rockstar take to make reverse engineering harder
 				nat = Program.x64nativefile.TranslateHash(rotl(reader.ReadUInt64(), codeSize + count));
 				_nativehash.Add(nat);
+               
 				if (Program.x64nativefile.ContainsKey(nat)&& !Translate)
 				{
 					_natives.Add(Program.x64nativefile[nat]);
@@ -117,7 +118,7 @@ namespace Decompiler
 					string temps = nat.ToString("X");
 					while (temps.Length < 16)
 						temps = "0" + temps;
-					_natives.Add("unk_0x" + temps);
+                    _natives.Add("unk_0x" + temps);
 				}
 				count++;
 			}

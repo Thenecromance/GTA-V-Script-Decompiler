@@ -63,6 +63,7 @@
             this.useMultiThreadingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.includeFunctionPositionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.uppercaseNativesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deCompliedWithoutTranslateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.exportTablesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.entitiesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -101,7 +102,7 @@
             this.toolStripStatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.timer3 = new System.Windows.Forms.Timer(this.components);
-            this.deCompliedWithoutTranslateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.buildJsonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.fctb1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -133,7 +134,6 @@
             this.fctb1.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.fctb1.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
             this.fctb1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.fctb1.Font = new System.Drawing.Font("Courier New", 9.75F);
             this.fctb1.IsReplaceMode = false;
             this.fctb1.Language = FastColoredTextBoxNS.Language.CSharp;
             this.fctb1.LeftBracket = '(';
@@ -384,6 +384,13 @@
             this.uppercaseNativesToolStripMenuItem.Text = "Uppercase Natives";
             this.uppercaseNativesToolStripMenuItem.Click += new System.EventHandler(this.uppercaseNativesToolStripMenuItem_Click);
             // 
+            // deCompliedWithoutTranslateToolStripMenuItem
+            // 
+            this.deCompliedWithoutTranslateToolStripMenuItem.Name = "deCompliedWithoutTranslateToolStripMenuItem";
+            this.deCompliedWithoutTranslateToolStripMenuItem.Size = new System.Drawing.Size(257, 22);
+            this.deCompliedWithoutTranslateToolStripMenuItem.Text = "DeComplied Without Translate";
+            this.deCompliedWithoutTranslateToolStripMenuItem.Click += new System.EventHandler(this.DeCompliedWithoutTranslateToolStripMenuItem_Click);
+            // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
@@ -544,7 +551,8 @@
             this.updateToolToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.unPackAllyscToolStripMenuItem,
             this.upackDatFileToolStripMenuItem,
-            this.updateDatNativetranslationToolStripMenuItem});
+            this.updateDatNativetranslationToolStripMenuItem,
+            this.buildJsonToolStripMenuItem});
             this.updateToolToolStripMenuItem.Name = "updateToolToolStripMenuItem";
             this.updateToolToolStripMenuItem.Size = new System.Drawing.Size(89, 21);
             this.updateToolToolStripMenuItem.Text = "UpdateTool";
@@ -691,12 +699,12 @@
             this.timer3.Interval = 5000;
             this.timer3.Tick += new System.EventHandler(this.timer3_Tick);
             // 
-            // deCompliedWithoutTranslateToolStripMenuItem
+            // buildJsonToolStripMenuItem
             // 
-            this.deCompliedWithoutTranslateToolStripMenuItem.Name = "deCompliedWithoutTranslateToolStripMenuItem";
-            this.deCompliedWithoutTranslateToolStripMenuItem.Size = new System.Drawing.Size(257, 22);
-            this.deCompliedWithoutTranslateToolStripMenuItem.Text = "DeComplied Without Translate";
-            this.deCompliedWithoutTranslateToolStripMenuItem.Click += new System.EventHandler(this.DeCompliedWithoutTranslateToolStripMenuItem_Click);
+            this.buildJsonToolStripMenuItem.Name = "buildJsonToolStripMenuItem";
+            this.buildJsonToolStripMenuItem.Size = new System.Drawing.Size(242, 22);
+            this.buildJsonToolStripMenuItem.Text = "BuildJson";
+            this.buildJsonToolStripMenuItem.Click += new System.EventHandler(this.BuildJsonToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -795,6 +803,7 @@
         private System.Windows.Forms.ToolStripMenuItem upackDatFileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem updateDatNativetranslationToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem deCompliedWithoutTranslateToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem buildJsonToolStripMenuItem;
     }
 }
 

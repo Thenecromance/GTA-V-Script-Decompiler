@@ -65,6 +65,7 @@ namespace Decompiler
                 Program.Config.IniWriteBool("Base", "Uppercase_Natives", false);
                 Program.Config.IniWriteBool("Base", "Hex_Index", false);
                 Program.Config.IniWriteBool("View", "Line_Numbers", true);
+                Program.Config.IniWriteBool("Base", "Decomplied_With_Translation", false);
             }
             showArraySizeToolStripMenuItem.Checked = Program.Find_Show_Array_Size();
             reverseHashesToolStripMenuItem.Checked = Program.Find_Reverse_Hashes();
@@ -77,6 +78,7 @@ namespace Decompiler
             globalAndStructHexIndexingToolStripMenuItem.Checked = Program.Find_Hex_Index();
             uppercaseNativesToolStripMenuItem.Checked = Program.Find_Upper_Natives();
             deCompliedWithoutTranslateToolStripMenuItem.Checked = Program.Find_Decomplied();
+
             showLineNumbersToolStripMenuItem.Checked = fctb1.ShowLineNumbers = Program.Config.IniReadBool("View", "Line_Numbers");
             ToolStripMenuItem t = null;
             switch (Program.Find_getINTType())
@@ -1086,6 +1088,7 @@ namespace Decompiler
                         {
                             DateTime fileTime = DateTime.Now;
                             fileopen = new ScriptFile(FileToStream(fileinfo.FullName), false);
+                            fileopen.BuildJson();
                             MemoryStream ms = new MemoryStream();
                             fileopen.Save(ms, false);
                             fileopen.Close();
@@ -1200,6 +1203,33 @@ namespace Decompiler
             updatestatus($"{counter} Natives Has Been Updated");
         }
 
-
+        private void BuildJsonToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FolderSelectDialog fsd = new FolderSelectDialog();
+            if (fsd.ShowDialog() == DialogResult.OK)
+            {
+                DateTime Start = DateTime.Now;
+                PackgePath = fsd.SelectedPath;
+                updatestatus("Start tu Build Json Data");
+                if (!Directory.Exists(DecomliedFile))
+                    Directory.CreateDirectory(DecomliedFile);
+                DirectoryInfo directoryInfo = new DirectoryInfo(PackgePath);
+                foreach (DirectoryInfo item in directoryInfo.GetDirectories())
+                {
+                    foreach (FileInfo fileinfo in item.GetFiles())
+                    {
+                        if (fileinfo.Extension == ".full")
+                        {
+                            DateTime fileTime = DateTime.Now;
+                            fileopen = new ScriptFile(FileToStream(fileinfo.FullName), false);
+                            fileopen.BuildJson();
+                            updatestatus($"[{(DateTime.Now - fileTime).ToString()}]Building {fileinfo.FullName}");
+                        }
+                    }
+                }
+                updatestatus($"Parse Finished {(DateTime.Now - Start).ToString()}");
+                fileopen.SaveToFile(".\\b1734.json");
+            }
+        }
     }
 }

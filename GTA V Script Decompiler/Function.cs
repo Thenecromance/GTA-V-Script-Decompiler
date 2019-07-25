@@ -22,6 +22,9 @@ namespace Decompiler
 		public int Rcount { get; private set; }
 		public int Location { get; private set; }
 		public int MaxLocation { get; private set; }
+
+        public string ownername { get; private set; }
+
 		StringBuilder sb = null;
 		List<HLInstruction> Instructions;
 		Dictionary<int, int> InstructionMap;
@@ -47,7 +50,9 @@ namespace Decompiler
 
 		public Function(ScriptFile Owner, string name, int pcount, int vcount, int rcount, int location, int locmax = -1)
 		{
-			this.Scriptfile = Owner;
+            ownername = Owner.name;
+
+            this.Scriptfile = Owner;
 			_consoleVer = Owner.ConsoleVer;
 			Name = name;
 			Pcount = pcount;
