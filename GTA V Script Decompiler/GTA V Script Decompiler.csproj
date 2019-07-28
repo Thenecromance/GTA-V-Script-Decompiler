@@ -93,10 +93,17 @@
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CodePath.cs" />
     <Compile Include="FolderSelectDialog.cs" />
+    <Compile Include="HelpBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HelpBox.Designer.cs">
+      <DependentUpon>HelpBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="Log.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -123,6 +130,9 @@
     <Compile Include="Utils.cs" />
     <Compile Include="Vars Info.cs" />
     <Compile Include="ScriptFile.cs" />
+    <EmbeddedResource Include="HelpBox.resx">
+      <DependentUpon>HelpBox.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
       <SubType>Designer</SubType>

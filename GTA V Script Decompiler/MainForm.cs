@@ -130,17 +130,17 @@ namespace Decompiler
                     ext = Path.GetExtension(Path.GetFileNameWithoutExtension(ofd.FileName));
                 }
 #if !DEBUG
-				try
-				{
+                try
+                {
 #endif
-                fileopen = new ScriptFile(ofd.OpenFile(), ext != ".ysc");
+                    fileopen = new ScriptFile(ofd.OpenFile(), ext != ".ysc");
 #if !DEBUG
-				}
-				catch (Exception ex)
-				{
-					updatestatus("Error decompiling script " + ex.Message);
-					return;
-				}
+                }
+                catch (Exception ex)
+                {
+                    updatestatus("Error decompiling script " + ex.Message);
+                    return;
+                }
 #endif
                 updatestatus("Decompiled Script File, Time taken: " + (DateTime.Now - Start).ToString());
                 MemoryStream ms = new MemoryStream();
@@ -260,29 +260,29 @@ namespace Decompiler
             OpenFileDialog ofd = new OpenFileDialog();
             ofd.Filter = "GTA V Script Files|*.xsc;*.csc;*.ysc";
 #if !DEBUG
-			try
-			{
-#endif
-            if (ofd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            try
             {
+#endif
+                if (ofd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                {
 
-                DateTime Start = DateTime.Now;
-                ScriptFile file = new ScriptFile(ofd.OpenFile(), (Path.GetExtension(ofd.FileName) != ".ysc"));
-                file.Save(Path.Combine(Path.GetDirectoryName(ofd.FileName),
-                    Path.GetFileNameWithoutExtension(ofd.FileName) + ".c"));
-                file.Close();
-                if ((Path.GetExtension(ofd.FileName) != ".ysc"))
-                    ScriptFile.npi.savefile();
-                else
-                    ScriptFile.X64npi.savefile();
-                updatestatus("File Saved, Time taken: " + (DateTime.Now - Start).ToString());
-            }
+                    DateTime Start = DateTime.Now;
+                    ScriptFile file = new ScriptFile(ofd.OpenFile(), (Path.GetExtension(ofd.FileName) != ".ysc"));
+                    file.Save(Path.Combine(Path.GetDirectoryName(ofd.FileName),
+                        Path.GetFileNameWithoutExtension(ofd.FileName) + ".c"));
+                    file.Close();
+                    if ((Path.GetExtension(ofd.FileName) != ".ysc"))
+                        ScriptFile.npi.savefile();
+                    else
+                        ScriptFile.X64npi.savefile();
+                    updatestatus("File Saved, Time taken: " + (DateTime.Now - Start).ToString());
+                }
 #if !DEBUG
-			}
-			catch (Exception ex)
-			{
-				updatestatus("Error decompiling script " + ex.Message);
-			}
+            }
+            catch (Exception ex)
+            {
+                updatestatus("Error decompiling script " + ex.Message);
+            }
 #endif
         }
 
@@ -1068,12 +1068,14 @@ namespace Decompiler
             fs.Close();
         }
         private string PackgePath = string.Empty;
+
         private string DecomliedFile = Environment.CurrentDirectory + "\\Decomplied\\";
         private void UnPackAllyscToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FolderSelectDialog fsd = new FolderSelectDialog();
             if (fsd.ShowDialog() == DialogResult.OK)
             {
+
                 DateTime Start = DateTime.Now;
                 PackgePath = fsd.SelectedPath;
                 updatestatus($"select Path:{PackgePath}");
@@ -1202,12 +1204,16 @@ namespace Decompiler
             fs.Close();
             updatestatus($"{counter} Natives Has Been Updated");
         }
-
         private void BuildJsonToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            string JsonFilePath = string.Empty;
             FolderSelectDialog fsd = new FolderSelectDialog();
+            //OpenFileDialog ofd = new OpenFileDialog();
+            //ofd.Filter = "Json|*.json";
             if (fsd.ShowDialog() == DialogResult.OK)
+            // ofd.ShowDialog() == DialogResult.OK)
             {
+                // JsonFilePath = ofd.FileName;
                 DateTime Start = DateTime.Now;
                 PackgePath = fsd.SelectedPath;
                 updatestatus("Start tu Build Json Data");
@@ -1220,16 +1226,24 @@ namespace Decompiler
                     {
                         if (fileinfo.Extension == ".full")
                         {
+                            JsonFilePath = Environment.CurrentDirectory + "\\Json\\b1604\\" + fileinfo.Name + ".json";
                             DateTime fileTime = DateTime.Now;
                             fileopen = new ScriptFile(FileToStream(fileinfo.FullName), false);
                             fileopen.BuildJson();
+                            fileopen.SaveToFile(JsonFilePath, true);
                             updatestatus($"[{(DateTime.Now - fileTime).ToString()}]Building {fileinfo.FullName}");
                         }
                     }
                 }
                 updatestatus($"Parse Finished {(DateTime.Now - Start).ToString()}");
-                fileopen.SaveToFile(".\\b1734.json");
+
             }
+        }
+
+        private void HelpToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            HelpBox box = new HelpBox();
+            box.ShowDialog();
         }
     }
 }

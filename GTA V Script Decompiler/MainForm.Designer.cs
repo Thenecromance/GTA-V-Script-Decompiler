@@ -87,6 +87,7 @@
             this.unPackAllyscToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.upackDatFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.updateDatNativetranslationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.buildJsonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
             this.listView1 = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -102,7 +103,7 @@
             this.toolStripStatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.timer3 = new System.Windows.Forms.Timer(this.components);
-            this.buildJsonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.fctb1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -134,6 +135,7 @@
             this.fctb1.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.fctb1.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
             this.fctb1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.fctb1.Font = new System.Drawing.Font("Courier New", 9.75F);
             this.fctb1.IsReplaceMode = false;
             this.fctb1.Language = FastColoredTextBoxNS.Language.CSharp;
             this.fctb1.LeftBracket = '(';
@@ -166,7 +168,8 @@
             this.optionsToolStripMenuItem,
             this.viewToolStripMenuItem,
             this.extractToolStripMenuItem,
-            this.updateToolToolStripMenuItem});
+            this.updateToolToolStripMenuItem,
+            this.helpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(810, 25);
@@ -578,6 +581,14 @@
             this.updateDatNativetranslationToolStripMenuItem.Text = "UpdateDatNative_translation";
             this.updateDatNativetranslationToolStripMenuItem.Click += new System.EventHandler(this.UpdateDatNativetranslationToolStripMenuItem_Click);
             // 
+            // buildJsonToolStripMenuItem
+            // 
+            this.buildJsonToolStripMenuItem.Enabled = false;
+            this.buildJsonToolStripMenuItem.Name = "buildJsonToolStripMenuItem";
+            this.buildJsonToolStripMenuItem.Size = new System.Drawing.Size(242, 22);
+            this.buildJsonToolStripMenuItem.Text = "BuildJson";
+            this.buildJsonToolStripMenuItem.Click += new System.EventHandler(this.BuildJsonToolStripMenuItem_Click);
+            // 
             // panel1
             // 
             this.panel1.Controls.Add(this.listView1);
@@ -699,12 +710,12 @@
             this.timer3.Interval = 5000;
             this.timer3.Tick += new System.EventHandler(this.timer3_Tick);
             // 
-            // buildJsonToolStripMenuItem
+            // helpToolStripMenuItem
             // 
-            this.buildJsonToolStripMenuItem.Name = "buildJsonToolStripMenuItem";
-            this.buildJsonToolStripMenuItem.Size = new System.Drawing.Size(242, 22);
-            this.buildJsonToolStripMenuItem.Text = "BuildJson";
-            this.buildJsonToolStripMenuItem.Click += new System.EventHandler(this.BuildJsonToolStripMenuItem_Click);
+            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(47, 21);
+            this.helpToolStripMenuItem.Text = "Help";
+            this.helpToolStripMenuItem.Click += new System.EventHandler(this.HelpToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -804,6 +815,7 @@
         private System.Windows.Forms.ToolStripMenuItem updateDatNativetranslationToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem deCompliedWithoutTranslateToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem buildJsonToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
     }
 }
 

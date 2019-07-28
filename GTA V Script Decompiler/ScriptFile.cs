@@ -361,7 +361,7 @@ namespace Decompiler
                     Statics.AddVar(reader.ReadInt64());
             }
         }
-        
+
         private static List<FileData> TotalFile;
         public void BuildJson()
         {
@@ -373,14 +373,14 @@ namespace Decompiler
             filedata.Function = new List<FunctionData>();
             foreach (Function item in Functions)
             {
-                
+
                 FunctionData fData = new FunctionData();
                 fData.funcName = item.Name;//函数名
                 fData.ParamCount = item.Pcount;//函数参数数量
                 fData.ReturnCount = item.Rcount;//返回值数量
                 fData.ReturnType = item.ReturnType.singlename;//返回值类型
                 fData.NewHash = FindNative(item);//找文件里面的Hash
-              
+
                 filedata.Function.Add(fData);
             }
             TotalFile.Add(filedata);
@@ -391,7 +391,7 @@ namespace Decompiler
             //unk_0xC4301E5121A0ED73(1);
             string s = f.ToString();
             List<string> Hash = new List<string>();
-            
+
             while (s.Contains("unk_0x"))
             {
                 s = s.Remove(0, s.IndexOf("unk_0x"));
@@ -401,12 +401,14 @@ namespace Decompiler
             return Hash.Distinct().ToList();
         }
 
-        public void SaveToFile(string filePath)
+        public void SaveToFile(string filePath, bool devide = false)
         {
             string json = JsonConvert.SerializeObject(TotalFile, Formatting.Indented);
-            using (StreamWriter writer =new StreamWriter(filePath))
+            using (StreamWriter writer = new StreamWriter(filePath))
             {
                 writer.WriteLine(json);
+                if (devide)
+                    TotalFile.Clear();
             }
         }
 
