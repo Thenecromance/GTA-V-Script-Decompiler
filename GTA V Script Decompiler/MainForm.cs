@@ -31,7 +31,9 @@ namespace Decompiler
         uint[] HashToFind;
         string SaveDirectory;
         Log logger;
-
+        private string LogPath;
+        private string LogName;
+        private bool LogToTheFile;
         public bool ScriptOpen
         {
             get { return scriptopen; }
@@ -42,10 +44,7 @@ namespace Decompiler
         public MainForm()
         {
             InitializeComponent();
-            logger = Log.Init();
-            logger.SetLogFileName("Decompiler.log");
-            logger.SetLogDirectory(Environment.CurrentDirectory + "\\Log\\");
-            logger.Common("Winform Init....");
+
             ScriptFile.npi = new NativeParamInfo();
 
             //ScriptFile.hashbank = temp;
@@ -66,6 +65,9 @@ namespace Decompiler
                 Program.Config.IniWriteBool("Base", "Hex_Index", false);
                 Program.Config.IniWriteBool("View", "Line_Numbers", true);
                 Program.Config.IniWriteBool("Base", "Decomplied_With_Translation", false);
+                Program.Config.IniWriteBool("Log", "LogToTheFile", false);
+                Program.Config.IniWriteValue("Log", "LogPath", Environment.CurrentDirectory + "\\Log\\");
+                Program.Config.IniWriteValue("Log", "LogName", "Decompiler.log");
             }
             showArraySizeToolStripMenuItem.Checked = Program.Find_Show_Array_Size();
             reverseHashesToolStripMenuItem.Checked = Program.Find_Reverse_Hashes();
@@ -80,6 +82,12 @@ namespace Decompiler
             deCompliedWithoutTranslateToolStripMenuItem.Checked = Program.Find_Decomplied();
 
             showLineNumbersToolStripMenuItem.Checked = fctb1.ShowLineNumbers = Program.Config.IniReadBool("View", "Line_Numbers");
+            LogPath = Program.Config.IniReadValue("Log", "LogPath");
+            LogName = Program.Config.IniReadValue("Log", "LogName");
+            LogToTheFile = Program.Config.IniReadBool("Log", "LogToTheFile");
+            logger = Log.Init();
+            logger.SetLogFileName(LogName);
+            logger.SetLogDirectory(LogPath);
             ToolStripMenuItem t = null;
             switch (Program.Find_getINTType())
             {
@@ -96,13 +104,15 @@ namespace Decompiler
             t.Checked = true;
             t.Enabled = false;
             highlight = (Style)new TextStyle(Brushes.Black, Brushes.Orange, fctb1.DefaultStyle.FontStyle);
+            updatestatus("MainForm Update Complete!");
 
         }
 
         void updatestatus(string text)
         {
             toolStripStatusLabel1.Text = text;
-            logger.Common(text);
+            if (LogToTheFile)
+                logger.Common(text);
             Application.DoEvents();
         }
 
@@ -1090,7 +1100,7 @@ namespace Decompiler
                         {
                             DateTime fileTime = DateTime.Now;
                             fileopen = new ScriptFile(FileToStream(fileinfo.FullName), false);
-                            fileopen.BuildJson();
+                            //fileopen.BuildJson();
                             MemoryStream ms = new MemoryStream();
                             fileopen.Save(ms, false);
                             fileopen.Close();
